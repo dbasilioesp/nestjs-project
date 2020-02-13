@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { GraphQLModule } from '@nestjs/graphql';
 
 import { AppController } from './app.controller';
 import { CatsController } from './cats.controller';
@@ -20,7 +21,10 @@ import { Photo } from './photos/photo.entity';
       url: 'mongodb://localhost:27017/aguion-norte',
       entities: [Photo]
     }),
-    PhotosModule
+    PhotosModule,
+    GraphQLModule.forRoot({
+      typePaths: ['./**/*.graphql'],
+    })
   ],
   controllers: [AppController, CatsController],
   providers: [AppService],
