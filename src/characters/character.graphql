@@ -1,0 +1,17 @@
+type Character {
+  id: Int!
+  name: String
+  description: String
+}
+
+type Query {
+  character(id: Int!): Character
+}
+
+type Query {
+  characterByName(name: String!): Character
+}
+
+type Mutation {
+  create(name: String, description: String): Character
+}

@@ -8,9 +8,9 @@ export class PhotosService {
   constructor(
     @InjectRepository(Photo)
     private readonly photoRepository: Repository<Photo>
-  ) {}
+  ) { }
 
-  getId(id: string | number): Promise<Photo> {
+  getId(id: string): Promise<Photo> {
     return this.photoRepository.findOne(id);
   }
 

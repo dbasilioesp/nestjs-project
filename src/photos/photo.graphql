@@ -1,5 +1,5 @@
 type Photo {
-  id: Int!
+  _id: String,
   name: String
   description: String
   filename: String
@@ -8,5 +8,5 @@ type Photo {
 }
 
 type Query {
-  photo(id: Int!): Photo
+  photo(id: String): Photo
 }

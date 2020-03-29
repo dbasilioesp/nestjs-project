@@ -3,10 +3,10 @@ import { PhotosService } from "./photos.service";
 
 @Resolver("Photo")
 export class PhotoResolver {
-  constructor(private readonly photosService: PhotosService) {}
+  constructor(private readonly photosService: PhotosService) { }
 
   @Query()
-  async photo(@Args("id") id: number) {
+  async photo(@Args("id") id: string) {
     return this.photosService.getId(id);
   }
 }
