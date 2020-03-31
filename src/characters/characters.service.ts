@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { Character } from './character.entity';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Repository, InsertResult } from 'typeorm';
 
 
 @Injectable()
@@ -25,7 +25,11 @@ export class CharactersService {
     return this.characterRepository.find();
   }
 
-  create(character: Character): Promise<Character> {
-    return this.characterRepository.save(character);
+  create(data: Character): Promise<Character> {
+
+    const char = this.characterRepository.create();
+    char.name = data.name;
+    char.description = data.description;
+    return this.characterRepository.save(char);
   }
 }

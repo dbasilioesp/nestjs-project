@@ -17,7 +17,7 @@ export class CharacterResolver {
   }
 
   @Mutation()
-  async create(
+  async createCharacter(
     @Args("name") name: string,
     @Args("description") description: string
   ) {
