@@ -1,16 +1,14 @@
-import { Injectable } from '@nestjs/common';
-import { Character } from './character.entity';
-import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, InsertResult } from 'typeorm';
-
+import { Injectable } from "@nestjs/common";
+import { Character } from "./character.entity";
+import { InjectRepository } from "@nestjs/typeorm";
+import { Repository, InsertResult } from "typeorm";
 
 @Injectable()
 export class CharactersService {
-
   constructor(
     @InjectRepository(Character)
     private readonly characterRepository: Repository<Character>
-  ) { }
+  ) {}
 
   getById(id: number | string): Promise<Character> {
     return this.characterRepository.findOne(id);
@@ -26,8 +24,14 @@ export class CharactersService {
   }
 
   create(data: Character): Promise<Character> {
-
     const char = this.characterRepository.create();
+    char.name = data.name;
+    char.description = data.description;
+    return this.characterRepository.save(char);
+  }
+
+  async update(id: string, data: Character): Promise<Character> {
+    const char = await this.characterRepository.findOne(id);
     char.name = data.name;
     char.description = data.description;
     return this.characterRepository.save(char);
