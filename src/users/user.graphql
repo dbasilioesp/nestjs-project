@@ -1,0 +1,28 @@
+type User {
+  id: String
+  firstName: String
+  lastName: String
+  username: String
+  email: String
+}
+
+input createUserInput {
+  firstName: String!
+  lastName: String!
+  username: String!
+  email: String!
+  password: String!
+}
+
+input updateUserInput {
+  id: String!
+  firstName: String
+  lastName: String
+  username: String
+  email: String
+}
+
+type Mutation {
+  createUser(user: createUserInput): User
+  updateUser(user: updateUserInput): User
+}

@@ -8,13 +8,14 @@ import { AuthModule } from "./auth/auth.module";
 import { UsersModule } from "./users/users.module";
 import { CharactersModule } from "./characters/characters.module";
 import { Character } from "./characters/character.entity";
+import { User } from "./users/user.entity";
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
       type: "mongodb",
       url: config.database,
-      entities: [Character],
+      entities: [Character, User],
       useUnifiedTopology: true,
       loggerLevel: "debug"
     }),
