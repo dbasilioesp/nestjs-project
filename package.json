@@ -30,7 +30,7 @@
     "@nestjs/typeorm": "6.3.1",
     "@types/bcrypt": "^3.0.0",
     "apollo-server-core": "^2.10.0",
-    "apollo-server-express": "^2.10.0",
+    "apollo-server-express": "^2.14.2",
     "bcrypt": "^4.0.1",
     "csurf": "^1.11.0",
     "dotenv": "^8.2.0",
